@@ -46,6 +46,13 @@ python weather_data.py
 The application will prompt you to select a city and a preferred temperature unit (Celsius or Fahrenheit).
 You can stop the data fetching at any time by typing 'stop' when prompted
 
+### Note on City Selection for Graph Representation
+For optimal graph representation and analysis, it is recommended to use Delhi or Mumbai as the selected city when running this weather monitoring application. The database contains a richer dataset for these cities over the past three days, resulting in more accurate and informative visualizations.
+
+While the application is designed to work with any of the available cities (Chennai, Bangalore, Kolkata, and Hyderabad), please be aware that data for these cities may be limited. To obtain sufficient data for effective graph representation, you will need to run the code repeatedly over three days, collecting and storing the weather data for these cities.
+
+
+
 ### After collecting weather data, run the visualization script
 python visualize.py
 

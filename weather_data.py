@@ -123,16 +123,15 @@ def fetch_weather_data(selected_city):
 
                 # Call the get_weather_forecast function
                 get_weather_forecast(selected_city, api_key)
-                return data
 
             else:
                 print("Failed to retrieve data:", response.status_code)
 
             # Prompt the user if they want to stop
-            user_input = input("Type 'stop' to end data fetching and proceed with visualization or press Enter to continue: ").strip().lower()
-            if user_input == 'stop':
-                print("Stopping weather data fetching.")
-                break
+            user_input = input("Type 'stop' to end data fetching and proceed with visualization or press Enter to continue: ")
+    
+            if user_input.lower() == 'stop':
+                break  # Exit the loop if the user types 'stop'
 
             time.sleep(300)  # Sleep for 5 minutes
 
@@ -197,7 +196,7 @@ def calculate_daily_summary(city, date):
     }
 
 if __name__ == "__main__":
-    selected_city = load_city_from_config()  # Load selected city at the start
+    selected_city = get_city_choice()  # Load selected city at the start
     if selected_city is None:
         selected_city = get_city_choice()  # Prompt for city selection if none is loaded
     else:
