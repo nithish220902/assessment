@@ -123,6 +123,7 @@ def fetch_weather_data(selected_city):
 
                 # Call the get_weather_forecast function
                 get_weather_forecast(selected_city, api_key)
+                return data
 
             else:
                 print("Failed to retrieve data:", response.status_code)
@@ -184,6 +185,16 @@ def calculate_daily_summary(city, date):
     conn.commit()
     print(f"Daily summary for {city} on {date} stored in the database.")
     conn.close()
+
+    # Return a dictionary with the summary
+    return {
+        'average_temp': average_temp,
+        'max_temp': max_temp,
+        'min_temp': min_temp,
+        'average_humidity': average_humidity,
+        'average_wind_speed': average_wind_speed,
+        'dominant_condition': dominant_condition
+    }
 
 if __name__ == "__main__":
     selected_city = load_city_from_config()  # Load selected city at the start
